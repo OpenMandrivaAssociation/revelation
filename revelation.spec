@@ -54,17 +54,6 @@ GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1 %makeinstall_std UPDATE_MIME_DATABASE=tr
 %{__rm} -f %buildroot%{_libdir}/python%pyver/site-packages/%name/*.pyc
 
 # menu entry
-mkdir -p %{buildroot}%{_menudir}
-cat << _EOF_ > %{buildroot}%{_menudir}/%{name}
-?package(%{name}): \
- command="%{_bindir}/%{name}" \
- icon="%{name}.png" \
- longtitle="Organize and secure your passwords" \
- needs="x11" \
- section="System/Other" \
- title="Revelation password manager" \
- startup_notify="yes" xdg="true"
-_EOF_
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="X-MandrivaLinux-System-Other" \
@@ -114,7 +103,6 @@ rm -rf %{buildroot}
 %dir %{_datadir}/icons/hicolor/
 %{_datadir}/icons/hicolor/*
 %{_datadir}/mime/packages/%name.xml
-%{_menudir}/%{name}
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
