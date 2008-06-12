@@ -72,19 +72,23 @@ convert -geometry 16x16 %SOURCE1 %{buildroot}%{_miconsdir}/%{name}.png
 cp %SOURCE1 %buildroot/%{_datadir}/pixmaps
 %find_lang %name
 
+%if %mdkversion < 200900
 %post
 %post_install_gconf_schemas %name
 %update_desktop_database
 %update_mime_database
 %update_menus
+%endif
 
 %preun
 %preun_uninstall_gconf_schemas %name
 
+%if %mdkversion < 200900
 %postun
 %clean_mime_database
 %clean_desktop_database
 %clean_menus
+%endif
 
 %clean
 rm -rf %{buildroot}
