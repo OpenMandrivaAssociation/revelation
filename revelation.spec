@@ -1,5 +1,5 @@
 %define version 0.4.11
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary:	Password manager for GNOME 2
 Name:		revelation
