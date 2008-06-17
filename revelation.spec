@@ -10,6 +10,7 @@ Group:		File tools
 URL:		http://oss.codepoet.no/revelation/
 Source:		ftp://oss.codepoet.no/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%name.png
+Patch0:		revelation-fix-desktop-entry.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	pygtk2.0-devel
@@ -41,6 +42,7 @@ stores them as AES-encrypted XML files.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x \
