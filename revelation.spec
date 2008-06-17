@@ -13,6 +13,7 @@ Source1:	%name.png
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	pygtk2.0-devel
+BuildRequires:	gnome-python-devel
 BuildRequires:	gnome-python-extras
 BuildRequires:	gnome-python-desktop
 BuildRequires:	gnome-python-gconf
