@@ -23,7 +23,7 @@ BuildRequires:	gnome-python-applet
 BuildRequires:	cracklib-devel
 BuildRequires:	pycrypto >= 1.9
 BuildRequires:	gnome-panel-devel >= 2.9.4
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 Requires:	gnome-python
 Requires:	gnome-python-gconf
