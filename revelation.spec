@@ -1,5 +1,5 @@
 %define version 0.4.11
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary:	Password manager for GNOME 2
 Name:		revelation
@@ -11,6 +11,7 @@ URL:		http://oss.codepoet.no/revelation/
 Source:		ftp://oss.codepoet.no/%{name}/%{name}-%{version}.tar.bz2
 Source1:	%name.png
 Patch0:		revelation-fix-desktop-entry.patch
+Patch1:		revelation_ui.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	pygtk2.0-devel
@@ -43,6 +44,7 @@ stores them as AES-encrypted XML files.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 %build
 %configure2_5x \
