@@ -26,6 +26,7 @@ BuildRequires:	pycrypto >= 1.9
 BuildRequires:	gnome-panel-devel >= 2.9.4
 BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
+BuildRequires:	intltool
 Requires:	gnome-python
 Requires:	gnome-python-gconf
 Requires:	gnome-python-gnomevfs
