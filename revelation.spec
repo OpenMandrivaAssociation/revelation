@@ -46,6 +46,7 @@ stores them as AES-encrypted XML files.
 %setup -q
 %patch0 -p0
 %patch1 -p0
+sed -i -e 's/-Wl --export-dynamic/-Wl,--export-dynamic/' -e "s/-lcrack/-lcrack -lpython%{py_ver}/" src/wrap/crack/Makefile.*
 
 %build
 %configure2_5x \
