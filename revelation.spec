@@ -1,5 +1,5 @@
-%define version 0.4.11
-%define release %mkrel 7
+%define version 0.4.12
+%define release %mkrel 1
 
 Summary:	Password manager for GNOME 2
 Name:		revelation
@@ -8,10 +8,8 @@ Release:	%{release}
 License:	GPL
 Group:		File tools
 URL:		http://oss.codepoet.no/revelation/
-Source:		ftp://oss.codepoet.no/%{name}/%{name}-%{version}.tar.bz2
+Source:		https://bitbucket.org/erikg/%name/downloads/%name-%version.tar.xz 
 Source1:	%name.png
-Patch0:		revelation-fix-desktop-entry.patch
-Patch1:		revelation_ui.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	pygtk2.0-devel
@@ -20,7 +18,7 @@ BuildRequires:	gnome-python-extras
 BuildRequires:	gnome-python-desktop
 BuildRequires:	gnome-python-gconf
 BuildRequires:	gnome-python-gnomevfs
-BuildRequires:	gnome-python-applet
+BuildRequires:	python-dbus
 BuildRequires:	cracklib-devel
 BuildRequires:	pycrypto >= 1.9
 BuildRequires:	gnome-panel-devel >= 2.9.4
@@ -30,7 +28,7 @@ BuildRequires:	intltool
 Requires:	gnome-python
 Requires:	gnome-python-gconf
 Requires:	gnome-python-gnomevfs
-Requires:	gnome-python-applet
+Requires:	python-dbus
 Requires:	python-libxml2
 Requires:	pycrypto >= 1.9
 Requires:	pygtk2.0 >= 2.3.91
@@ -44,8 +42,6 @@ stores them as AES-encrypted XML files.
 
 %prep
 %setup -q
-%patch0 -p0
-%patch1 -p0
 sed -i -e 's/-Wl --export-dynamic/-Wl,--export-dynamic/' -e "s/-lcrack/-lcrack -lpython%{py_ver}/" src/wrap/crack/Makefile.*
 
 %build
@@ -109,8 +105,6 @@ rm -rf %{buildroot}
 %{_datadir}/applications/*.desktop
 %{_datadir}/pixmaps/*
 %{py_platsitedir}/%{name}
-%{_libexecdir}/bonobo/servers/GNOME_RevelationApplet.server
-%{_libexecdir}/revelation-applet
 %dir %{_datadir}/icons/hicolor/
 %{_datadir}/icons/hicolor/*
 %{_datadir}/mime/packages/%name.xml
