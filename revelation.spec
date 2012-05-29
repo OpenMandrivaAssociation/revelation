@@ -1,5 +1,5 @@
-%define version 0.4.12
-%define release %mkrel 1
+%define version 0.4.13
+%define release 1
 
 Summary:	Password manager for GNOME 2
 Name:		revelation
@@ -8,11 +8,11 @@ Release:	%{release}
 License:	GPL
 Group:		File tools
 URL:		http://oss.codepoet.no/revelation/
-Source:		https://bitbucket.org/erikg/%name/downloads/%name-%version.tar.xz 
+Source0:	https://bitbucket.org/erikg/%name/downloads/%name-%version.tar.xz 
 Source1:	%name.png
-Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 BuildRequires:	pygtk2.0-devel
+BuildRequires:	%{_lib}crack2-python
 BuildRequires:	gnome-python-devel
 BuildRequires:	gnome-python-extras
 BuildRequires:	gnome-python-desktop
@@ -36,13 +36,12 @@ Requires(post):	desktop-file-utils shared-mime-info
 Requires(postun):desktop-file-utils shared-mime-info
 
 %description
-Revelation is a password manager for the GNOME 2 desktop, released under
+Revelation is a password manager for the GNOME 3 desktop, released under
 the GNU GPL license. It organizes accounts in a tree structure, and
 stores them as AES-encrypted XML files.
 
 %prep
 %setup -q
-sed -i -e 's/-Wl --export-dynamic/-Wl,--export-dynamic/' -e "s/-lcrack/-lcrack -lpython%{py_ver}/" src/wrap/crack/Makefile.*
 
 %build
 %configure2_5x \
@@ -75,29 +74,7 @@ convert -geometry 16x16 %SOURCE1 %{buildroot}%{_miconsdir}/%{name}.png
 cp %SOURCE1 %buildroot/%{_datadir}/pixmaps
 %find_lang %name
 
-%if %mdkversion < 200900
-%post
-%post_install_gconf_schemas %name
-%update_desktop_database
-%update_mime_database
-%update_menus
-%endif
-
-%preun
-%preun_uninstall_gconf_schemas %name
-
-%if %mdkversion < 200900
-%postun
-%clean_mime_database
-%clean_desktop_database
-%clean_menus
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files -f %name.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog README
 %{_sysconfdir}/gconf/schemas/*.schemas
 %{_bindir}/*
