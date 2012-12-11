@@ -90,3 +90,54 @@ cp %SOURCE1 %buildroot/%{_datadir}/pixmaps
 %{_miconsdir}/%{name}.png
 
 
+
+
+%changelog
+* Tue May 29 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.4.13-1
++ Revision: 801099
+- version update 0.4.13
+
+* Mon Nov 21 2011 Götz Waschk <waschk@mandriva.org> 0.4.12-1
++ Revision: 732153
+- new version
+- xz tarball
+- drop patches
+- update deps
+- remove panel applet
+
+* Mon May 23 2011 Funda Wang <fwang@mandriva.org> 0.4.11-7
++ Revision: 677909
+- fix build
+- br intltool
+- rebuild to add gconftool as req
+
+* Sun Sep 20 2009 Funda Wang <fwang@mandriva.org> 0.4.11-6mdv2011.0
++ Revision: 444850
+- fix broken menu generation (bug#53772)
+
+* Tue Sep 15 2009 Thierry Vignaud <tv@mandriva.org> 0.4.11-5mdv2010.0
++ Revision: 442697
+- rebuild
+
+* Sat Dec 27 2008 Adam Williamson <awilliamson@mandriva.org> 0.4.11-4mdv2009.1
++ Revision: 319711
+- rebuild with python 2.6
+
+  + Oden Eriksson <oeriksson@mandriva.com>
+    - lowercase ImageMagick
+
+* Tue Jun 17 2008 Thierry Vignaud <tv@mandriva.org> 0.4.11-3mdv2009.0
++ Revision: 222748
+- patch 0: fix 'error: value "0.4.11" for key "Version" in group "Desktop
+  Entry" is not a known version'
+- buildrequires gnome-python-devel
+- rebuild
+- drop old menu
+- kill re-definition of %%buildroot on Pixel's request
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Olivier Blin <blino@mandriva.org>
+    - restore BuildRoot
+
