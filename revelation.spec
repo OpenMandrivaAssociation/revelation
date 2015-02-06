@@ -4,7 +4,7 @@
 Summary:	Password manager for GNOME
 Name:		revelation
 Version:	0.4.14
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		File tools
 Url:		http://oss.codepoet.no/revelation/
