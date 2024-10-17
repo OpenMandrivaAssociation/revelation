@@ -7,7 +7,7 @@ Version:	0.4.14
 Release:	2
 License:	GPLv2+
 Group:		File tools
-Url:		http://oss.codepoet.no/revelation/
+Url:		https://oss.codepoet.no/revelation/
 Source0:	https://bitbucket.org/erikg/%{name}/downloads/%{name}-%{version}.tar.xz
 Source1:	%{name}.png
 BuildRequires:	desktop-file-utils
