@@ -10,6 +10,11 @@ Group:		File tools
 Url:		https://oss.codepoet.no/revelation/
 Source0:	https://bitbucket.org/erikg/%{name}/downloads/%{name}-%{version}.tar.xz
 Source1:	%{name}.png
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(pygtk-2.0)
